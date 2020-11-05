@@ -2,16 +2,14 @@
 
 | Column             | Type   | Options                        |
 | ------------------ | ------ | ------------------------------ |
-| nickname           | string | null: false　　　　　　　　　　　　|
-| email              | string | null: false　　　　　　　　　　　　|
-| encrypted_password | string | null: false　　　　　　　　　　　　|
-| last_name          | string | null: false　　　　　　　　　　　　|
-| first_name         | string | null: false　　　　　　　　　　　　|
-| last_name_kana     | string | null: false　　　　　　　　　　　　|
-| first_name_kana    | string | null: false　　　　　　　　　　　　|
-| birthday           | date   | null: false　　　　　　　　　　　　|
-
-
+| nickname           | string | null: false                    |
+| email              | string | null: false                    |
+| encrypted_password | string | null: false                    |
+| last_name          | string | null: false                    |
+| first_name         | string | null: false                    |
+| last_name_kana     | string | null: false                    |
+| first_name_kana    | string | null: false                    |
+| birthday           | date   | null: false                    |
 
 ### Association
 - has_many :items
@@ -31,8 +29,6 @@
 | price             | integer   | null: false,                   |
 | user_id           | reference | null: false, foreign_key: true |
 
-
-
 ### Association
 - belongs_to :user
 - has_one :purchase
@@ -42,10 +38,11 @@
 
 | Column      | Type      | Options                        |
 | ----------- | --------- | ------------------------------ |
-| receiver_id | reference | null: false, foreign_key: true |
-| items_id    | reference | null: false, foreign_key: true |
+| item_id     | reference | null: false, foreign_key: true |
+| user_id     | reference | null: false, foreign_key: true |
 
 ### Association
+- belongs_to :user
 - belongs_to :item
 - has_one :receiver
 
@@ -59,8 +56,8 @@
 | address       | string    | null: false,                   |
 | street_number | string    | null: false,                   |
 | phone_number  | string    | null: false,                   |
-| building_name | string    | null: false,                   |
-| item_id       | reference | null: false, foreign_key: true |
+| building_name | string    |                                |
+| purchase_id   | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
