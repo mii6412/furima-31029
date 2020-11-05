@@ -26,8 +26,9 @@
 | condition_id      | integer   | null: false,                   |
 | departure_area_id | integer   | null: false,                   |
 | shipping_id       | integer   | null: false,                   |
+| duration_id       | integer   | null: false,                   |
 | price             | integer   | null: false,                   |
-| user_id           | reference | null: false, foreign_key: true |
+| user              | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -38,8 +39,8 @@
 
 | Column      | Type      | Options                        |
 | ----------- | --------- | ------------------------------ |
-| item_id     | reference | null: false, foreign_key: true |
-| user_id     | reference | null: false, foreign_key: true |
+| item        | reference | null: false, foreign_key: true |
+| user        | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -57,7 +58,7 @@
 | street_number | string    | null: false,                   |
 | phone_number  | string    | null: false,                   |
 | building_name | string    |                                |
-| purchase_id   | reference | null: false, foreign_key: true |
+| purchase      | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
