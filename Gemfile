@@ -65,3 +65,7 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'gimei'
+
+group :production do
+  gem 'rails_12factor'
+end
