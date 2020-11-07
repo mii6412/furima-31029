@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @items = Prototype.all
+    @items = Item.all
   end
 
   def new
@@ -28,7 +30,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(prototype_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  def prototype_params
-    params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :departure_area_id, :shipping_id, :duration_id, :price, :image).merge(user_id: current_user.id)
+  def item_params
+    params.require(:item).permit(:image, :item_name, :description, :category_id, :condition_id, :shipping_id, :departure_area_id, :duration_id, :price,).merge(user_id: current_user.id)
   end
 end
