@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :item_name
     validates :description 
-    validates :category_id 
+    validates :category_id, numericality: { other_than: 1 } 
     validates :condition_id 
     validates :departure_area_id
     validates :shipping_id
@@ -15,5 +15,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :purchase
   has_one_attached :image
+  belongs_to :category
 
 end
