@@ -7,10 +7,9 @@ class Item < ApplicationRecord
     validates :category_id, numericality: { other_than: 1 } 
     validates :condition_id, numericality: { other_than: 1 } 
     validates :shipping_id, numericality: { other_than: 1 } 
-    validates :departure_area_id, numericality: { other_than: 1 } 
     validates :duration_id, numericality: { other_than: 1 } 
     validates :departure_area_id, numericality: { other_than: 1 } 
-    validates :price
+    validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
     validates :user
   end
 
