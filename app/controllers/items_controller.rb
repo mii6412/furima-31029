@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @items = Item.all
+    #@items = Item.all
   end
 
   def new
@@ -22,26 +22,26 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    unless @item.user == current_user
-      redirect_to root_path
-    end
+    #@item = Item.find(params[:id])
+    #unless @item.user == current_user
+    #  redirect_to root_path
+    #end
   end
 
   def update
-    @item = Item.find(params[:id])
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
+    #@item = Item.find(params[:id])
+    #if @item.update(item_params)
+    #  redirect_to root_path
+    #else
+    #  render :edit
+    #end
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    if @item.destroy
-      redirect_to root_path
-    end
+    #@item = Item.find(params[:id])
+    #if @item.destroy
+    #  redirect_to root_path
+    #end
   end
 
   private

@@ -12,16 +12,6 @@ RSpec.describe Item, type: :model do
       it "image、item_name、description、category_id、condition_id、shipping_id、duration_id、departure_area_id、priceが存在すれば登録できる" do
         expect(@item).to be_valid
       end
-
-      it "priceが¥300以上であれば登録できる" do
-        @item.price = "301"
-        expect(@item).to be_valid
-      end
-
-      it "priceが¥9999999以下であれば登録できる" do
-        @item.price = "9999998"
-        expect(@item).to be_valid
-      end
     end
 
     context '出品がうまくいかないとき' do
@@ -75,6 +65,12 @@ RSpec.describe Item, type: :model do
 
       it "priceが文字列では登録できない" do
         @item.price = "aaa"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+
+      it "priceが全角数字では登録できない" do
+        @item.price = "５００"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
