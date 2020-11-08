@@ -24,8 +24,8 @@
 | description       | text      | null: false,                   |
 | category_id       | integer   | null: false,                   |
 | condition_id      | integer   | null: false,                   |
-| departure_area_id | integer   | null: false,                   |
 | shipping_id       | integer   | null: false,                   |
+| departure_area_id | integer   | null: false,                   |
 | duration_id       | integer   | null: false,                   |
 | price             | integer   | null: false,                   |
 | user              | reference | null: false, foreign_key: true |
