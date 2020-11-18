@@ -67,6 +67,12 @@ RSpec.describe PurchaseReceiver, type: :model do
         @purchase_receiver.valid?
         expect(@purchase_receiver.errors.full_messages).to include( )
       end
+
+      it '電話番号が12桁以上の場合は購入できない' do
+        @purchase_receiver.phone_number = 111111111111
+        @purchase_receiver.valid?
+        expect(@purchase_receiver.errors.full_messages).to include( )
+      end
   
       it '電話番号にハイフンがある場合は購入できない' do
         @purchase_receiver.phone_number = "#{123}-#{456}-#{789}"
