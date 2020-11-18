@@ -12,6 +12,13 @@ RSpec.describe PurchaseReceiver, type: :model do
       it "zip_code、departure_are_id、address、street_number、phone_number、tokenが正しく入力されていれば購入できる" do
         expect(@purchase_receiver).to be_valid
       end
+
+      it "建物名が空欄でも購入できる" do
+        @purchase_receiver.building_name = nil
+        @purchase_receiver.valid?
+        expect(@purchase_receiver).to be_valid
+      end 
+
     end
 
     context '購入がうまくいかないとき' do
